@@ -3,6 +3,7 @@ import './styles/Quiz.css';
 
 import React, { useState } from 'react';
 import QuizConfig from './QuizConfig';
+import { useAuth } from '../context/AuthContext';
 
 const Quiz = ({ kanjis, studyLists, premadeStudyLists, onQuizComplete }) => {
   const [quizConfig, setQuizConfig] = useState(null);
@@ -11,6 +12,7 @@ const Quiz = ({ kanjis, studyLists, premadeStudyLists, onQuizComplete }) => {
   const [questions, setQuestions] = useState([]);
   const [currentAnswer, setCurrentAnswer] = useState('');
   const [userAnswers, setUserAnswers] = useState([]);
+  const { authToken } = useAuth();
 
   const startQuiz = async (config) => {
     let kanjiData = [];
@@ -26,25 +28,27 @@ const Quiz = ({ kanjis, studyLists, premadeStudyLists, onQuizComplete }) => {
         url = `http://localhost:8000/api/premadestudylists/${listId}/`;
       }
 
-      if (url) {
-        try {
-          const response = await fetch(url, {
-            headers: {
-              'Content-Type': 'application/json',
-              // Include authorization header if needed
-            },
-          });
 
-          if (response.ok) {
-            const data = await response.json();
-            kanjiData = data.kanjis; // Assuming the response contains a 'kanjis' field
-          } else {
-            console.error('Failed to fetch kanji data');
-          }
-        } catch (error) {
-          console.error('Error fetching kanji data:', error);
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            // Conditionally add the Authorization header for 'study' lists
+            ...(listType === 'study' && { 'Authorization': `Token ${authToken}` }),
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          kanjiData = data.kanjis; // Assuming the response contains a 'kanjis' field
+        } else {
+          console.error('Failed to fetch kanji data');
         }
+      } catch (error) {
+        console.error('Error fetching kanji data:', error);
       }
+
     }
 
     // Proceed with randomizing the kanji data and generating questions
