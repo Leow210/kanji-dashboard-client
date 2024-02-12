@@ -1,0 +1,36 @@
+/* KanjiItem.css */
+.kanji-item {
+  border: 1px solid #ccc;
+  width: 15%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  /* Space between items */
+  border-radius: 8px;
+  /* Rounded corners */
+  background-color: #f9f9f9;
+  /* Very light grey background */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.kanji-item:hover {
+  background-color: #f0f0f0;
+  /* Slightly darker grey on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for depth */
+}
+
+.kanji-item h2 {
+  margin: 0;
+  /* Remove default margins */
+  color: #333;
+  /* Dark grey color */
+  font-size: 1.5rem;
+  /* Larger font size */
+}
+
+.kanji-item p {
+  margin: 0.5rem 0;
+  /* Vertical margin */
+  color: #666;
+  /* Medium grey color */
+}

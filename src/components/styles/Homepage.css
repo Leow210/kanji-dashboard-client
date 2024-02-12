@@ -1,0 +1,103 @@
+/* Homepage.css */
+.homepage {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.homepage h1 {
+  color: #6200ea;
+  margin-bottom: 2rem;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+}
+
+.search-form input,
+.search-form select {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-form button {
+  background-color: #6200ea;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+  background-color: #3700b3;
+  /* Darker purple on hover */
+}
+
+.kanji-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+
+.study-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.premade-list-selection {
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.premade-list-selection label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.premade-list-selection select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.study-list-selection-form {
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+.study-list-selection-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.study-list-selection-form select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.study-list-selection-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.study-list-selection-form button:hover {
+  background-color: #3700b3;
+}
