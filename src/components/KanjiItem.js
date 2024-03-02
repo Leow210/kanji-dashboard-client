@@ -14,6 +14,7 @@ const KanjiItem = ({ kanji }) => {
         <p>Kanji Kentei Level: {kanji.kanken_level}</p>
       </Link>
       {/*could add stuff like buttons here*/}
+
     </div>
   );
 };

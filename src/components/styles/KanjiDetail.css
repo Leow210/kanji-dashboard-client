@@ -16,3 +16,47 @@
   margin: 10px 0;
   line-height: 1.6;
 }
+
+.kanji-detail select,
+.kanji-detail button {
+  display: block;
+  /* Make them block level for full width */
+  width: 50%;
+  /* Set a relative width */
+  margin: auto 10px;
+  /* Centering and adding space between */
+  padding: 10px 15px;
+  /* Increased padding for bigger size */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  /* Bigger font size */
+  cursor: pointer;
+  /* Ensure the cursor indicates clickable elements */
+}
+
+.kanji-detail button {
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  /* Remove border for button */
+}
+
+/* Container to center select and button */
+#add-to-list {
+  display: flex;
+  flex-direction: row;
+  /* Stack them vertically */
+  align-items: center;
+  /* Center the items horizontally */
+  justify-content: space-between;
+  /* Add space between elements */
+  margin-top: 20px;
+  /* Add some space above the container */
+}
+
+/* Optional: Add hover effect for button for better UX */
+.kanji-detail button:hover {
+  background-color: #7b1fa2;
+  /* Darker shade when hovered */
+}
