@@ -1,22 +1,65 @@
 /*StudyListDetailPage.css*/
 .study-list-detail {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 169, 244, 0.2);
 }
 
-.study-list-detail h1,
+.study-list-detail h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0288d1;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .study-list-detail h2 {
   text-align: center;
-  color: rgb(60, 60, 59);
+  font-size: 1.8rem;
+  color: #0288d1;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
 }
 
-.kanji-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+.study-list-detail h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  border-radius: 2px;
+}
+
+.study-list-detail .kanji-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(179, 229, 252, 0.1);
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .study-list-detail {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .study-list-detail .kanji-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
 }

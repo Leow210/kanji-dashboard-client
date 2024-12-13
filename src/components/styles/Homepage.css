@@ -1,103 +1,152 @@
 /* Homepage.css */
 .homepage {
   text-align: center;
-  padding: 2rem 0;
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #e0f7ff 0%, #ffffff 50%, #f0f9ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add decorative background elements */
+.homepage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(100, 181, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(3, 169, 244, 0.1) 0%, transparent 50%);
+  z-index: -1;
 }
 
 .homepage h1 {
-  color: #6200ea;
-  margin-bottom: 2rem;
+  color: #0288d1;
+  font-size: 2.5rem;
+  margin-bottom: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-form {
-  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 169, 244, 0.2);
 }
 
 .search-form input,
 .search-form select {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #b3e5fc;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  min-width: 200px;
+  background: #ffffff;
+}
+
+.search-form input:focus,
+.search-form select:focus {
+  outline: none;
+  border-color: #03a9f4;
+  box-shadow: 0 0 0 3px rgba(3, 169, 244, 0.2);
 }
 
 .search-form button {
-  background-color: #6200ea;
-  color: #fff;
-  padding: 0.5rem 1rem;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  color: white;
+  padding: 0.75rem 2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .search-form button:hover {
-  background-color: #3700b3;
-  /* Darker purple on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 169, 244, 0.3);
 }
 
 .kanji-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
 }
-
 
 .study-container {
+  margin: 2rem auto;
+  /* Changed from margin: 2rem 0 to center horizontally */
+  padding: 2rem;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 169, 244, 0.2);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  flex-direction: column;
+  /* Stack children vertically */
+  align-items: center;
+  /* Center children horizontally */
 }
 
-.premade-list-selection {
-  margin: 20px auto;
-  max-width: 300px;
-}
-
-.premade-list-selection label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.premade-list-selection select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
+.premade-list-selection,
 .study-list-selection-form {
-  margin: 20px auto;
-  max-width: 300px;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 169, 244, 0.2);
 }
 
+.premade-list-selection label,
 .study-list-selection-form label {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #0288d1;
 }
 
+.premade-list-selection select,
 .study-list-selection-form select {
   width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-bottom: 15px;
+  padding: 0.75rem;
+  border: 2px solid #b3e5fc;
+  border-radius: 12px;
+  background: #ffffff;
+  transition: all 0.2s ease;
 }
 
 .study-list-selection-form button {
   width: 100%;
-  padding: 10px;
-  background-color: #6200ea;
+  margin-top: 1rem;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
   color: white;
+  padding: 0.75rem;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.study-list-selection-form button:hover {
-  background-color: #3700b3;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }

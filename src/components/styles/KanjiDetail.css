@@ -1,62 +1,191 @@
 /*KanjiDetail.css*/
+/* KanjiDetail.css */
 .kanji-detail {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(3, 169, 244, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(3, 169, 244, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.kanji-detail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #0288d1, #03a9f4, #4fc3f7, #03a9f4, #0288d1);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .kanji-detail h1 {
   text-align: center;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  color: #0288d1;
+  text-shadow: 2px 2px 0 rgba(3, 169, 244, 0.2);
+  position: relative;
+  padding: 1rem 0;
 }
 
-.kanji-detail p {
-  margin: 10px 0;
+.kanji-detail h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #03a9f4, transparent);
+  border-radius: 2px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.info-card {
+  padding: 1.25rem;
+  background: rgba(179, 229, 252, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(3, 169, 244, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 169, 244, 0.1);
+}
+
+.info-label {
+  font-size: 0.9rem;
+  color: #0288d1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.info-content {
+  color: #37474f;
+  font-size: 1.1rem;
   line-height: 1.6;
 }
 
-.kanji-detail select,
-.kanji-detail button {
-  display: block;
-  /* Make them block level for full width */
-  width: 50%;
-  /* Set a relative width */
-  margin: auto 10px;
-  /* Centering and adding space between */
-  padding: 10px 15px;
-  /* Increased padding for bigger size */
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  /* Bigger font size */
-  cursor: pointer;
-  /* Ensure the cursor indicates clickable elements */
+.readings-container {
+  background: linear-gradient(135deg, rgba(3, 169, 244, 0.05) 0%, rgba(179, 229, 252, 0.1) 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
 }
 
-.kanji-detail button {
-  background-color: #6200ea;
-  color: white;
-  border: none;
-  /* Remove border for button */
+.readings-title {
+  color: #0288d1;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
 }
 
-/* Container to center select and button */
+.readings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.reading-type {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  text-align: center;
+}
+
 #add-to-list {
   display: flex;
-  flex-direction: row;
-  /* Stack them vertically */
+  gap: 1rem;
   align-items: center;
-  /* Center the items horizontally */
-  justify-content: space-between;
-  /* Add space between elements */
-  margin-top: 20px;
-  /* Add some space above the container */
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(179, 229, 252, 0.15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Optional: Add hover effect for button for better UX */
+.kanji-detail select {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #b3e5fc;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  color: #0288d1;
+  transition: all 0.2s ease;
+  max-width: 300px;
+  position: relative;
+  z-index: 1;
+}
+
+.kanji-detail select:focus {
+  outline: none;
+  border-color: #03a9f4;
+  box-shadow: 0 0 0 3px rgba(3, 169, 244, 0.2);
+}
+
+.kanji-detail button {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #0288d1, #03a9f4);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
 .kanji-detail button:hover {
-  background-color: #7b1fa2;
-  /* Darker shade when hovered */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 169, 244, 0.3);
+}
+
+@media (max-width: 640px) {
+
+  .info-grid,
+  .readings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #add-to-list {
+    flex-direction: column;
+  }
+
+  .kanji-detail select {
+    max-width: 100%;
+  }
 }

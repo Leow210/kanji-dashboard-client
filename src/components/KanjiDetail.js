@@ -57,20 +57,51 @@ const KanjiDetail = () => {
   };
 
   return (
-    <div class="kanji-detail">
+    <div className="kanji-detail">
       {kanjiDetail ? (
         <div>
           <h1>{kanjiDetail.character}</h1>
-          <p>Meanings: {kanjiDetail.meanings.join(', ')}</p>
-          <p>Strokes: {kanjiDetail.strokes}</p>
-          <p>Readings: On(音) - {kanjiDetail.readings_on.join(', ')}, Kun(訓) - {kanjiDetail.readings_kun.join(', ')}</p>
-          <p>JLPT Level: {kanjiDetail.jlpt_new}</p>
-          <p>Kanken Level (漢字検定): {kanjiDetail.kanken_level}</p>
-          <p>Wanikani Level: {kanjiDetail.wk_level}</p>
+
+          <div className="info-grid">
+            <div className="info-card">
+              <div className="info-label">Meanings</div>
+              <div className="info-content">{kanjiDetail.meanings.join(', ')}</div>
+            </div>
+
+            <div className="info-card">
+              <div className="info-label">Strokes</div>
+              <div className="info-content">{kanjiDetail.strokes}</div>
+            </div>
+
+            <div className="info-card">
+              <div className="info-label">JLPT Level</div>
+              <div className="info-content">N{kanjiDetail.jlpt_new}</div>
+            </div>
+
+            <div className="info-card">
+              <div className="info-label">Kanken Level</div>
+              <div className="info-content">{kanjiDetail.kanken_level}</div>
+            </div>
+          </div>
+
+          <div className="readings-container">
+            <div className="readings-title">Readings</div>
+            <div className="readings-grid">
+              <div className="reading-type">
+                <div className="info-label">On (音)</div>
+                <div className="info-content">{kanjiDetail.readings_on.join(', ')}</div>
+              </div>
+              <div className="reading-type">
+                <div className="info-label">Kun (訓)</div>
+                <div className="info-content">{kanjiDetail.readings_kun.join(', ')}</div>
+              </div>
+            </div>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>
       )}
+
       <div id="add-to-list">
         <select value={selectedList} onChange={(e) => setSelectedList(e.target.value)}>
           <option value="">Select Study List</option>
